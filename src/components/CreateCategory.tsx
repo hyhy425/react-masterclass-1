@@ -18,7 +18,12 @@ function CreateCategory() {
   };
   return (
     <form onSubmit={handleSubmit(handleValid)}>
-      <input {...register("customCategory")} placeholder="Add Category" />
+      <input
+        {...register("customCategory", {
+          required: "Please write a Category",
+        })}
+        placeholder="Write a Category"
+      />
       <button>Add</button>
     </form>
   );
