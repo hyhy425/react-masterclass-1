@@ -19,6 +19,11 @@ export interface IToDo {
   category: Categories;
 }
 
+export interface ICustomCategory {
+  title: string;
+  id: number;
+}
+
 export const toDoState = atom<IToDo[]>({
   key: "toDo",
   default: [],
@@ -28,6 +33,12 @@ export const toDoState = atom<IToDo[]>({
 export const categoryState = atom<Categories>({
   key: "category",
   default: Categories.TO_DO,
+});
+
+export const customCategoryState = atom<ICustomCategory[]>({
+  key: "customCategory",
+  default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const toDoSelector = selector({
